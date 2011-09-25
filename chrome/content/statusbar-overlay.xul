@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://forcecors/content/style.css" type="text/css"?>
+<overlay id="statusbar-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<statusbar id="status-bar">
+		<statusbarpanel id="forcecors-button" label="cors" onclick="forcecors.toggle()" tooltiptext="click to force CORS"/>
+	</statusbar>
+	<script type="application/x-javascript" src="chrome://forcecors/content/code.js"/>
+</overlay>

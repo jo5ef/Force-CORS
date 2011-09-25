@@ -1,0 +1,3 @@
+content	forcecors	chrome/content/
+
+overlay chrome://browser/content/browser.xul chrome://forcecors/content/statusbar-overlay.xul
