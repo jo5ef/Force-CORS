@@ -6,7 +6,7 @@ function Forcecors() {
 				var httpChannel = subject.QueryInterface(Components.interfaces.nsIHttpChannel);
 				var headers = Forcecors.getHeaders();
 				for(var i = 0; i < headers.length; i++) {
-					var keyValue = headers[i].split(':');
+					var keyValue = headers[i].split(' ');
 					httpChannel.setResponseHeader(keyValue[0], keyValue[1], false);
 				}
 			}
@@ -19,7 +19,7 @@ Forcecors.getHeaders = function() {
 		.getService(Components.interfaces.nsIPrefBranch);
 	var headers = prefs.getCharPref('forcecors.headers');
 	if(headers != null) {
-		return headers.split(' ');
+		return headers.split('|');
 	}
 	return [];
 };
