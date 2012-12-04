@@ -19,6 +19,12 @@ Forcecors.getHeaders = function() {
 		.getService(Components.interfaces.nsIPrefBranch);
 	var headers = prefs.getCharPref('forcecors.headers');
 	if(headers != null) {
+		if(headers.indexOf('|') === -1) {
+			// migrate old config
+			headers = headers.replace(/ /, '|');
+			headers = headers.replace(/:/, ' ');
+			prefs.setCharPref('forcecors.headers', headers);
+		}
 		return headers.split('|');
 	}
 	return [];
